@@ -15,6 +15,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'slim'
+gem 'pry', '~> 0.10.3'
+
+
 group :development, :test do
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
