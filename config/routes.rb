@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get  '/add_company',  to: 'companies#new'
+  post '/add_company',  to: 'companies#create'
   resources :companies
 end
