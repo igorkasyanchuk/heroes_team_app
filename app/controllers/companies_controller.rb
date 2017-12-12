@@ -24,7 +24,8 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
-  def update  end
+  def update
+  end
 
   def destroy
     @company = Company.find(params[:id]).destroy
