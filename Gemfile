@@ -38,3 +38,12 @@ group :development do
 end
 
 gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
+
+group :production do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-rvm'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails-collection'
+  gem 'capistrano-rails-db'
+end
