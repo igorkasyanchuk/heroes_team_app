@@ -1,13 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Company, type: :model do
-  it { should validate_presence_of(:name) }
-  it { should validate_length_of(:name).is_at_least(2) }
-  it { should validate_length_of(:name).is_at_most(64) }
+  describe 'validations with factories' do
+    let(:val_company)  { build :company, :valid_domain }
+    let(:inval_company)  { build :company, :invalid_domain }
 
-  it { should validate_presence_of(:domain) }
-  it { should validate_length_of(:domain).is_at_least(3) }
-  it { should validate_length_of(:domain).is_at_most(64) }
+    it 'has a valid Factory' do
+      expect(val_company).to be_valid
+    end
 
-  it { should allow_value(Faker::Internet.domain_name).for(:domain) }
+    it 'has a invalid Factory' do
+      expect(inval_company).not_to be_valid
+    end
+  end
 end
