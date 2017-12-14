@@ -8,6 +8,9 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 server "heroes-team.pp.ua", user: "deploy", roles: %w[app db web]
 
+set :branch, :master
+set :deploy_to, "/var/www/heroes_team_app/code"
+
 # role-based syntax
 # ==================
 
