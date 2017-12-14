@@ -55,11 +55,11 @@ server "heroes-team.pp.ua", user: "deploy", roles: %w[app db web]
 #     # password: "please use keys"
 #   }
 server "heroes-team.pp.ua",
-  user: "deploy",
-  roles: %w[web app],
-  ssh_options: {
-		user: "deploy",
-		keys: %w[~/.ssh/heroes_team.pem],
-		forward_agent: true,
-		auth_methods: ["publickey"]
-		}
+       user: "deploy",
+       roles: %w[web app],
+       ssh_options: {
+         user:          "deploy",
+         keys:          %w[~/.ssh/heroes_team.pem],
+         forward_agent: true,
+         auth_methods:  ["publickey"]
+       }

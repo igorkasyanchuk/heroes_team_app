@@ -27,16 +27,16 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-rails-collection'
+  gem 'capistrano-rails-db'
+  gem 'capistrano-rvm'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'capistrano', '~> 3.6'
-  gem 'capistrano-rails', '~> 1.3'
-  gem 'capistrano-passenger'
-  gem 'capistrano-rvm'
-  gem 'capistrano-rails-collection'
-  gem 'capistrano-rails-db'
 end
 
 gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
