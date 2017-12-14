@@ -15,7 +15,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'slim'
 gem 'pry', '~> 0.10.3'
 
 
@@ -35,11 +34,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-end
 
-gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
-
-group :production do
   gem 'capistrano', '~> 3.6'
   gem 'capistrano-rails', '~> 1.3'
   gem 'capistrano-rvm'
@@ -47,3 +42,5 @@ group :production do
   gem 'capistrano-rails-collection'
   gem 'capistrano-rails-db'
 end
+
+gem 'tzinfo-data', '~> 1.2017', '>= 1.2017.3'
