@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    current_company
+    @company = current_company
   end
 
   def new
@@ -21,11 +21,11 @@ class CompaniesController < ApplicationController
   end
 
   def edit
-    current_company
+    @company = current_company
   end
 
   def update
-    current_company
+    @company = current_company
     if @company.update_attributes(company_params)
       redirect_to @company
     else
@@ -34,7 +34,8 @@ class CompaniesController < ApplicationController
   end
 
   def destroy
-    current_company.destroy
+    @company = current_company
+    @company.destroy
   end
 
   private
@@ -44,6 +45,6 @@ class CompaniesController < ApplicationController
   end
 
   def current_company
-    @company = Company.find(params[:id])
+    Company.find(params[:id])
   end
 end
