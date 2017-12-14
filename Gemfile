@@ -15,9 +15,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 
-gem 'pry', '~> 0.10.3'
-
-
 group :development, :test do
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
@@ -34,11 +31,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-
   gem 'capistrano', '~> 3.6'
   gem 'capistrano-rails', '~> 1.3'
-  gem 'capistrano-rvm'
   gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
   gem 'capistrano-rails-collection'
   gem 'capistrano-rails-db'
 end
