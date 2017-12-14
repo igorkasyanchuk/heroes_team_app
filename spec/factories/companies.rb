@@ -1,14 +1,10 @@
 FactoryBot.define do
   factory :company do
-    name {Faker::Company.name}
-
-    trait :valid_domain do
-      domain {Faker::Internet.domain_name}
-    end
+    name { Faker::Company.name }
+    domain { Faker::Internet.domain_name }
 
     trait :invalid_domain do
-      domain {Faker::Internet.email}
+      domain { Faker::Internet.email }
     end
-
   end
 end
