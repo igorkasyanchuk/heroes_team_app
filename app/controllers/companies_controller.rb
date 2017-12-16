@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(company_params)
+    @company = current_user.companies.build(company_params)
     if @company.save
       redirect_to companies_path
     else
@@ -29,7 +29,7 @@ class CompaniesController < ApplicationController
   def update
     @company = current_company
     if @company.update_attributes(company_params)
-      redirect_to @company
+      redirect_to company_path
     else
       render 'edit'
     end
@@ -38,6 +38,8 @@ class CompaniesController < ApplicationController
   def destroy
     @company = current_company
     @company.destroy
+    flash[:success] = "Company deleted"
+    redirect_to companies_path
   end
 
   private

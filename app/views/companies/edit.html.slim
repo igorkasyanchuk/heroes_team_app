@@ -1,8 +1,8 @@
 - provide(:button_text, 'Edit Company')
 - provide(:path, company_path)
-h1 Edit Company
+h1.col-md-6.col-md-offset-3 Edit Company
 .row
-  .col-md-6.col-md-offset-3
+  .col-md-3.col-md-offset-3
     = form_for(@company, url: yield(:path)) do |f|
       = f.label :name
       = f.text_field :name, class: 'form-control'

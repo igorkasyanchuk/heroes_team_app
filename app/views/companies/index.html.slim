@@ -1,8 +1,7 @@
 h1 All companies
+= link_to "Add new company", new_company_path, class: 'btn btn-primary'
 
 ul.company
   - @companies.each do |company|
     li
-      = company.name
-      ul
-        li= company.domain
+      = link_to company.name, company_path(company)
