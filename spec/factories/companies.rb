@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :company do
+    user
     name { Faker::Company.name }
     domain { Faker::Internet.domain_name }
 
