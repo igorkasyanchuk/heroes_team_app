@@ -14,11 +14,12 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    # doesn't work yet cause user has no references with companies(needs user_id to create)
     @company = current_user.companies.build(company_params)
     if @company.save
       redirect_to companies_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -31,14 +32,13 @@ class CompaniesController < ApplicationController
     if @company.update_attributes(company_params)
       redirect_to company_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     @company = current_company
     @company.destroy
-    flash[:success] = "Company deleted"
     redirect_to companies_path
   end
 
