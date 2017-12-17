@@ -1,11 +1,8 @@
-- provide(:button_text, 'Edit Company')
-- provide(:path, company_path)
 h1.col-md-6.col-md-offset-3 Edit Company
 .row
   .col-md-3.col-md-offset-3
-    = simple_form_for @company, url: yield(:path) do |f|
-      = f.label :name
-      = f.text_field :name, class: 'form-control'
-      = f.label :domain
-      = f.text_field :domain, class: 'form-control'
-      = f.submit yield(:button_text), class: "btn btn-primary"
+    = simple_form_for @company, url: company_path,
+                                defaults: { input_html: { class: 'form-control' } } do |f|
+      = f.input :name
+      = f.input :domain, hint: "Only '-' of special characters is allowed."
+      = f.button :submit, 'Edit Company', class: "btn btn-primary"
