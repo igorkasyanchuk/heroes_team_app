@@ -9,7 +9,7 @@
 server "heroes-team.pp.ua", user: "deploy", roles: %w[app db web]
 
 set :branch, :master
-set :deploy_to, "/var/www/heroes_team_app/code"
+set :deploy_to, "/var/www/heroes_team_app"
 
 # role-based syntax
 # ==================
