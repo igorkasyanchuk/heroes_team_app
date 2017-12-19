@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @companies = Company.all
@@ -14,7 +14,6 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    # doesn't work yet cause user has no references with companies(needs user_id to create)
     @company = current_user.companies.build(company_params)
     if @company.save
       redirect_to companies_path
