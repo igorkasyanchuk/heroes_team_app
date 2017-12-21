@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass', '3.3.7'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
+gem 'fullcontact', '0.13.0'
 
 group :development, :test do
   gem 'byebug', '~> 9.0', '>= 9.0.6'
