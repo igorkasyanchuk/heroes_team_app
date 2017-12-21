@@ -136,6 +136,11 @@ GEM
     ffi (1.9.18)
     font-awesome-sass (4.7.0)
       sass (>= 3.2)
+    fullcontact (0.13.0)
+      faraday (~> 0.9.0)
+      faraday_middleware (>= 0.9)
+      hashie (>= 2.0, < 4.0)
+      plissken
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gravatar_image_tag (1.2.0)
@@ -152,16 +157,16 @@ GEM
     json (2.1.0)
     kaminari (1.1.1)
       activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
+      kaminari-actionview (= 1.0.1)
+      kaminari-activerecord (= 1.0.1)
+      kaminari-core (= 1.0.1)
+    kaminari-actionview (1.0.1)
       actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
+      kaminari-core (= 1.0.1)
+    kaminari-activerecord (1.0.1)
       activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
+      kaminari-core (= 1.0.1)
+    kaminari-core (1.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -183,7 +188,7 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    parallel (1.12.1)
+    parallel (1.12.0)
     parser (2.4.0.2)
       ast (~> 2.3)
     pg (0.21.0)
@@ -376,6 +381,7 @@ DEPENDENCIES
   feathericon-sass
   font-awesome-sass (~> 4.7.0)
   gravatar_image_tag
+  fullcontact (= 0.13.0)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari

@@ -18,10 +18,31 @@ ActiveRecord::Schema.define(version: 20171225200830) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "domain"
+    t.string "youtube"
+    t.string "twitter"
+    t.string "linkedin"
+    t.string "facebook"
+    t.string "angellist"
+    t.string "owler"
+    t.string "crunchbasecompany"
+    t.string "pinterest"
+    t.string "google"
+    t.string "klout"
+    t.string "overview"
+    t.integer "founded"
+    t.integer "approx_employees"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "industries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_industries_on_company_id"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -72,6 +93,7 @@ ActiveRecord::Schema.define(version: 20171225200830) do
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "industries", "companies"
   add_foreign_key "pages", "companies"
   add_foreign_key "users", "tenants"
 end
