@@ -3,7 +3,6 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
     create_table :companies do |t|
       t.string  :name
       t.string  :domain
-      #links
       t.string  :youtube
       t.string  :twitter
       t.string  :linkedin
@@ -14,7 +13,6 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string  :pinterest
       t.string  :google
       t.string  :klout
-      #organization
       t.string  :overview
       t.integer :founded
       t.integer :approx_employees      

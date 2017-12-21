@@ -23,6 +23,7 @@ gem 'jquery-rails'
 gem 'fullcontact', '0.13.0'
 
 group :development, :test do
+  gem 'annotate'
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'
@@ -36,6 +37,12 @@ group :development, :test do
 end
 
 group :development do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-rails-collection'
+  gem 'capistrano-rails-db'
+  gem 'capistrano-rvm'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
