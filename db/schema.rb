@@ -37,10 +37,17 @@ ActiveRecord::Schema.define(version: 20171225200830) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "companies_industries", id: false, force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "industry_id", null: false
+    t.index ["company_id", "industry_id"], name: "index_companies_industries_on_company_id_and_industry_id"
+  end
+
   create_table "industries", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
     t.bigint "company_id"
     t.index ["company_id"], name: "index_industries_on_company_id"
   end
@@ -86,14 +93,9 @@ ActiveRecord::Schema.define(version: 20171225200830) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "tenant_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["tenant_id"], name: "index_users_on_tenant_id"
   end
 
   add_foreign_key "companies", "users"
-  add_foreign_key "industries", "companies"
-  add_foreign_key "pages", "companies"
-  add_foreign_key "users", "tenants"
 end
