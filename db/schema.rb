@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171221235048) do
+ActiveRecord::Schema.define(version: 20171224131211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20171221235048) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "tenant_id"
+    t.index ["tenant_id"], name: "index_companies_on_tenant_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
@@ -50,21 +52,34 @@ ActiveRecord::Schema.define(version: 20171221235048) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.integer "page_type"
+    t.string "page_type"
     t.string "title"
     t.string "content_html"
     t.string "content"
     t.string "source_url"
-    t.integer "status"
+    t.string "status"
     t.string "screenshot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_pages_on_company_id"
+  end
+
+  create_table "tenants", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "website"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "owner_id"
+    t.index ["owner_id"], name: "index_tenants_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.integer "role", default: 1
+    t.string "role", default: "sale"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -81,5 +96,6 @@ ActiveRecord::Schema.define(version: 20171221235048) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "companies", "tenants"
   add_foreign_key "companies", "users"
 end

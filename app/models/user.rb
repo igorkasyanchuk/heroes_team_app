@@ -18,15 +18,17 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  tenant_id              :integer
 #
 
 class User < ApplicationRecord
-  ROLES = { sale: 0, admin: 1, moderator: 2 }.freeze
-  enum role: ROLES
+  SALE_ROLE = 'sale'.freeze
+  ADMIN_ROLE = 'admin'.freeze
+  MODERATOR_ROLE = 'moderator'.freeze
+  ROLES = [SALE_ROLE, ADMIN_ROLE, MODERATOR_ROLE].freeze
   has_many :companies, dependent: :destroy
-  validates :first_name, length: { minimum: 3, maximum: 50 }, presence: true
-  validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
+  belongs_to :tenant, optional: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :first_name, length: { minimum: 3, maximum: 50 }, presence: true
+  validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
 end

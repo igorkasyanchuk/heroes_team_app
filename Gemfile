@@ -17,13 +17,16 @@ gem 'simple_form'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 # Use SCSS for stylesheets
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'jquery-rails'
 gem 'fullcontact', '0.13.0'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do
   gem 'annotate'
+  gem 'any_login'
   gem 'byebug', '~> 9.0', '>= 9.0.6'
   gem 'capybara', '~> 2.13'
   gem 'database_cleaner'

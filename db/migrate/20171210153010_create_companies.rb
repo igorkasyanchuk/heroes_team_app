@@ -16,6 +16,8 @@ class CreateCompanies < ActiveRecord::Migration[5.1]
       t.string  :overview
       t.integer :founded
       t.integer :approx_employees      
+      t.string :name
+      t.string :domain
 
       t.timestamps
     end

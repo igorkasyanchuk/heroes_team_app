@@ -1,6 +1,4 @@
-FactoryBot.create_list(:page, 50)
-
-FactoryBot.create(:user, email: 'example@gmail.com', password: '1qaz2wsx')
+FactoryBot.create(:user, email: 'admin@admin.com', password: '1qaz2wsx', role: 'admin')
 
 user = User.first
 
@@ -15,3 +13,7 @@ FactoryBot.create(:company, name:  'SoftServe,Inc.',
 FactoryBot.create(:company, name:  'Alphabet Inc.',
                             domain: 'abc.xyz',
                             user: user)
+
+company = Company.first
+
+FactoryBot.create_list(:page, 20, company: company)
