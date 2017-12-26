@@ -50,3 +50,6 @@ bower.json
 .byebug_history
 
 .idea/
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
