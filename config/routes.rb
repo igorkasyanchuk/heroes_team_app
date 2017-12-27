@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :companies
     resources :pages, only: %i[show index]
     resources :tenants
+    get 'profile/edit'
   end
 end
