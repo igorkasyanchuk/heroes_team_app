@@ -1,16 +1,21 @@
 class FullContactCompanyProcessor
-  
-  attr_accessor :company
-
-  def initialize(company)
-      @company = company
+  def initialize(company: current_company)
+    @company = company
   end
 
-  def add_information
-    FullContact.api_key = 'mA89bZt0uRfvrWX06QjqLUfZOQNS87Lf'
-    @response = FullContact.company(domain: @company.domain).to_hash
-    
-    #links
+  def process
+    @response = call_fullcontact_api
+    return if @response.nil? || @response['status'] != 200
+    process_links
+    process_organization
+    set_industries
+    @company.save
+    @company
+  end
+
+  private
+
+  def process_links
     @company.twitter = find_url('twitter')
     @company.facebook = find_url('facebook')
     @company.linkedin = find_url('linkedincompany')
@@ -21,30 +26,35 @@ class FullContactCompanyProcessor
     @company.pinterest = find_url('pinterest')
     @company.google = find_url('google')
     @company.klout = find_url('klout')
-
-    #data from organization 
-    organization = @response['organization']
-
-    @company.name = organization['name']
-    @company.approx_employees = organization['approx_employees']
-    @company.founded = organization['founded']
-    @company.overview = organization['overview']
-
-    #data from industries
-    set_industries
-    @company
   end
 
-  private
+  def process_organization
+    organization = @response['organization']
+    @company.name = organization['name'] || ''
+    @company.approx_employees = organization['approx_employees'] || ''
+    @company.founded = organization['founded'] || ''
+    @company.overview = organization['overview'] || ''
+  end
+
+  def call_fullcontact_api
+    FullContact.api_key = Rails.application.secrets.fullcontact_api_key
+    FullContact.company(domain: @company.domain).to_hash
+  rescue FullContact::NotFound, FullContact::Invalid
+    nil
+  end
 
   def find_url(type_id)
-    @response['social_profiles'].any? {|h| h['type_id'] == type_id} ?
-        @response['social_profiles'].find {|x| x['type_id'] == type_id}['url'] : ''
+    if @response['social_profiles']&.any? { |h| h['type_id'] == type_id }
+      @response['social_profiles'].find { |x| x['type_id'] == type_id }['url']
+    else
+      ''
+    end
   end
 
   def set_industries
-    @response["industries"].each do |item|
-      @company.industries << Industry.find_or_create_by(name: item["name"])
+    return unless @response['industries']
+    @response['industries'].each do |item|
+      @company.industries << Industry.find_or_create_by(name: item['name'])
     end
   end
 end

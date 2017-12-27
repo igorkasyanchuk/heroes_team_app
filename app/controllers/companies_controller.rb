@@ -15,7 +15,6 @@ class CompaniesController < ApplicationController
 
   def create
     @company = current_user.companies.build(company_params)
-    @company = FullContactCompanyProcessor.new(@company).add_information
     if @company.save
       redirect_to companies_path
     else
@@ -29,7 +28,6 @@ class CompaniesController < ApplicationController
 
   def update
     @company = current_company
-    @company = FullContactCompanyProcessor.new(@company).add_information
     if @company.update_attributes(company_params)
       redirect_to company_path
     else

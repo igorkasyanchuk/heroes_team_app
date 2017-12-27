@@ -20,8 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
-gem 'jquery-rails'
 gem 'fullcontact', '0.13.0'
+gem 'jquery-rails'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 
 group :development, :test do

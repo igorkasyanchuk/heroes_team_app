@@ -36,33 +36,76 @@
                   h4= @company.name
                   a href="http://#{@company.domain}" target="_blank"=  @company.domain
                   h6 Description
-                  p
-                    | Brief overview
-                    br
-                    | Mostly info from FullContact in this card
+                  p= @company.overview
               .row
                 .card-text.col-sm-2
-                  h6 Categories
+                  h6 Industries
                 .card-text.col-sm-10
-                  | List of indastries
+                  ul
+                    - @company.industries.each do |item|
+                      li= item.name
               .row
                 .card-text.col-sm-2
-                  h6 Founded Date
+                  h6 Founded Year
                 .card-text.col-sm-10
-                  | Jan 1, 2003
+                  p= @company.founded
               .row
                 .card-text.col-sm-2
-                  h6 Founders
+                  h6 Count of Employees
                 .card-text.col-sm-10
-                  | List of Founders
+                  p= @company.approx_employees
         /! / Overciew
         /! Pages
         .card
           .card-header
-            h4.card-title= "#{@company.name} pages"
-          .card-content.collapse.show
+            h4.card-title= "#{@company.name} links"
+          .card-content
             .card-body
-              .card-text
+              .row
+                .card-text.col-sm-2
+                  h6 Twitter
+                .card-text.col-sm-4
+                  a href=@company.twitter target="_blank"=  @company.twitter
+                .card-text.col-sm-2
+                  h6 Facebook
+                .card-text.col-sm-4
+                  a href=@company.facebook target="_blank"=  @company.facebook
+              .row
+                .card-text.col-sm-2
+                  h6 Linkedin
+                .card-text.col-sm-4
+                  a href=@company.linkedin target="_blank"=  @company.linkedin
+                .card-text.col-sm-2
+                  h6 Youtube
+                .card-text.col-sm-4
+                  a href=@company.youtube target="_blank"=  @company.youtube
+              .row
+                .card-text.col-sm-2
+                  h6 Angellist
+                .card-text.col-sm-4
+                  a href=@company.angellist target="_blank"=  @company.angellist
+                .card-text.col-sm-2
+                  h6 Owler
+                .card-text.col-sm-4
+                  a href=@company.owler target="_blank"=  @company.owler
+              .row
+                .card-text.col-sm-2
+                  h6 Crunchbasecompany
+                .card-text.col-sm-4
+                  a href=@company.crunchbasecompany target="_blank"=  @company.crunchbasecompany
+                .card-text.col-sm-2
+                  h6 Pinterest
+                .card-text.col-sm-4
+                  a href=@company.pinterest target="_blank"=  @company.pinterest
+              .row
+                .card-text.col-sm-2
+                  h6 Google
+                .card-text.col-sm-4
+                  a href=@company.google target="_blank"=  @company.google
+                .card-text.col-sm-2
+                  h6 Klout
+                .card-text.col-sm-4
+                  a href=@company.klout target="_blank"=  @company.klout
         /! / Pages
     section.row
       .col-md-6.col-sm-12

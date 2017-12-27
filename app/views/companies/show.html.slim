@@ -4,9 +4,4 @@ h1= @company.name
   = link_to "Delete", company_path, method: :delete,\
                       data: { confirm: 'Are you certain you want to delete this company?' },\
                       class: 'btn btn-primary'
-- @company.attributes.each do |item,value|
-    - unless value == '' || value == nil
-      div
-      	span= item + ':'
-      	p= value
-      
+h1= debug @company
