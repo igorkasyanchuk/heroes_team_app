@@ -39,7 +39,7 @@ class FullContactCompanyProcessor
   def call_fullcontact_api
     FullContact.api_key = Rails.application.secrets.fullcontact_api_key
     FullContact.company(domain: @company.domain).to_hash
-  rescue FullContact::NotFound, FullContact::Invalid
+  rescue FullContact::NotFound, FullContact::Invalid, FullContact::Forbidden
     nil
   end
 
