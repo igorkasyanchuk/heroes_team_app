@@ -93,9 +93,13 @@ ActiveRecord::Schema.define(version: 20171225200830) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "tenant_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["tenant_id"], name: "index_users_on_tenant_id"
   end
 
   add_foreign_key "companies", "users"
+  add_foreign_key "pages", "companies"
+  add_foreign_key "users", "tenants"
 end
