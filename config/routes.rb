@@ -10,5 +10,6 @@ Rails.application.routes.draw do
     end
     resources :tenants
     resources :users
+    get 'profile/edit'
   end
 end
