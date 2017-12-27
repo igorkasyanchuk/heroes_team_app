@@ -8,3 +8,4 @@
 //= require account/contents
 //= require account/sortable_widgets
 //= require vendor/jquery.tree-multiselect
+//= require rails-ujs
