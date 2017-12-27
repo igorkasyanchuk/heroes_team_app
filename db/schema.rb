@@ -48,10 +48,7 @@ ActiveRecord::Schema.define(version: 20171225200830) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_industries_on_company_id"
-  end
-
+  
   create_table "pages", force: :cascade do |t|
     t.string "page_type"
     t.string "title"
