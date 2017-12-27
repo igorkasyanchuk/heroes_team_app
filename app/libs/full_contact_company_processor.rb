@@ -1,5 +1,5 @@
 class FullContactCompanyProcessor
-  def initialize(company: current_company)
+  def initialize(company:)
     @company = company
   end
 
