@@ -4,10 +4,4 @@ class Account::DashboardController < ApplicationController
   def index
     render layout: 'dashboard'
   end
-
-  private
-
-  def user_admin?
-    current_user.role.eql? "admin"
-  end
 end

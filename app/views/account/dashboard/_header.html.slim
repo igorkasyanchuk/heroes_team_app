@@ -10,9 +10,9 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
             = image_tag('stack-logo-light.png', alt: 'logo', class: 'brand-logo')
             h2.brand-text
               - if user_admin?
-                | ADMIN PANEL 
-              - else 
-                | Sales Assistant 
+                | ADMIN PANEL
+              - else
+                | Sales Assistant
         li.nav-item.d-md-none
           a.nav-link.open-navbar-container[data-toggle="collapse" data-target="#navbar-mobile"]
             i.fa.fa-ellipsis-v
@@ -97,8 +97,9 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
             .dropdown-menu.dropdown-menu-right
               = link_to edit_user_registration_path, class: "dropdown-item" do
                 i.ft-power
-                | Edit Profile 
+                | Edit Profile
               .dropdown-divider
               = link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do
                 i.ft-power
-                | Logout 
+                | Logout
+                
