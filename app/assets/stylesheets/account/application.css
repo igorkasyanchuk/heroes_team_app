@@ -1,0 +1,20 @@
+/*
+  *= require 'account/stack_theme/app'
+  *= require 'account/stack_theme/bootstrap'
+  *= require 'account/stack_theme/bootstrap-extended'
+  *= require 'account/stack_theme/colors'
+  *= require 'account/stack_theme/component'
+  *= require 'account/stack_theme/core/menu/menu-types/horizontal-menu'
+  *= require 'account/stack_theme/core/menu/menu-types/vertical-menu'
+  *= require 'account/stack_theme/core/menu/menu-types/vertical-overlay-menu'
+  *= require 'account/stack_theme/plugins/forms/select2'
+  *= require 'account/filter'
+  *= require 'account/widgets'
+  *= require 'account/custom'
+  *= require 'account/vendor/jquery.tree-multiselect'
+  *= require 'account/stack_theme/core/colors/palette-gradient'
+  *= require 'account/dashboard'
+  *= require 'account/style'
+  *= require 'font-awesome'
+*/
+
