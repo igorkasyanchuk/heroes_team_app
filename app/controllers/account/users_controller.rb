@@ -1,8 +1,13 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
+  before_action :admin_user
 
   def index
-    @users = current_tenant_users.page(params[:page]).per(10)
+    @users = collection.page(params[:page]).per(10)
+  end
+
+  def show
+    @user = resource
   end
 
   def new
@@ -10,9 +15,9 @@ class Account::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    set_tenant_id
-    set_default_password
+    @user = User.new(resource_params)
+    @user.tenant = current_tenant
+    @user.password = User::DEFAULT_PASSWORD
     if @user.save
       flash[:success] = "New user is successfuly created!"
       redirect_to account_users_path
@@ -23,12 +28,12 @@ class Account::UsersController < ApplicationController
   end
 
   def edit
-    @user = set_current_tenant_user
+    @user = resource
   end
 
   def update
-    @user = set_current_tenant_user
-    if @user.update_attributes(user_params)
+    @user = resource
+    if @user.update_attributes(resource_params)
       flash[:success] = "Successfuly updated!"
       redirect_to account_users_path
     else
@@ -38,7 +43,7 @@ class Account::UsersController < ApplicationController
   end
 
   def destroy
-    @user = set_current_tenant_user
+    @user = resource
     @user.destroy
     flash[:success] = "User deleted!"
     redirect_to account_users_path
@@ -46,28 +51,16 @@ class Account::UsersController < ApplicationController
 
   private
 
-  def set_default_password
-    @user.password = User::DEFAULT_PASSWORD
-  end
-
-  def set_tenant_id
-    @user.tenant = current_tenant
-  end
-
-  def user_params
+  def resource_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
                                  :role, :tenant_id)
   end
 
-  def current_tenant
-    current_user.tenant
+  def collection
+    current_tenant.users.order(created_at: :asc)
   end
 
-  def current_tenant_users
-    User.where(tenant_id: current_tenant).order(created_at: :asc)
-  end
-
-  def set_current_tenant_user
-    User.find(params[:id])
+  def resource
+    collection.find(params[:id])
   end
 end

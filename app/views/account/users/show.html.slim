@@ -1,0 +1,11 @@
+.container
+  h2.user
+    = @user.full_name
+  div
+    span
+      strong  Tenant:
+    span =  @user.tenant.name
+  div
+    span
+      strong  Role:
+    span = @user.role

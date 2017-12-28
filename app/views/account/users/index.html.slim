@@ -6,11 +6,5 @@
           h2 Users of your Tenant
         .col-md-3
           = link_to 'Add user', new_account_user_path, class: 'btn btn-primary'
-      table.table.table-bordered
-        thead
-          th.col-md-3 Full Name
-          th.col-md-3 Email
-          th.col-md-3 Role
-          th.col-md-4 Operation
-        = render partial: 'users_table', collection: @users, as: :user
+      = render 'users_table'
       = paginate @users

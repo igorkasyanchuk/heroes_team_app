@@ -1,12 +1,4 @@
 FactoryBot.create(:user, email: 'admin1@admin.com', password: '1qaz2wsx', role: 'admin')
-FactoryBot.create(:user, email: 'admin2@admin.com', password: '1qaz2wsx', role: 'admin')
-FactoryBot.create(:user, email: 'admin3@admin.com', password: '1qaz2wsx', role: 'admin')
-
-FactoryBot.create_list(:user, 5, tenant_id: 1)
-FactoryBot.create_list(:user, 5, tenant_id: 2)
-FactoryBot.create_list(:user, 5, tenant_id: 3)
-
-
 
 user = User.first
 
