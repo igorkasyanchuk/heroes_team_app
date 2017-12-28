@@ -6,9 +6,8 @@ RSpec.describe Account::ProfileController, type: :controller do
     sign_in @user
   end
 
-  it "returns http success" do
+  it "GET #edit returns http success" do
     get :edit
     expect(response).to have_http_status(200)
   end
-
 end
