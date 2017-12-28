@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user
+
 
   def index
     @users = collection.page(params[:page]).per(10)
