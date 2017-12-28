@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :companies
     resources :pages, only: %i[show index]
     resources :tenants
+    resources :users
   end
 end

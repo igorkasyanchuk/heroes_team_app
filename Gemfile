@@ -5,13 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap-sass', '3.3.7'
 gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'devise'
 gem 'dynamic_form'
 gem 'gravatar_image_tag'
 gem 'jbuilder', '~> 2.5'
-gem 'jquery-rails'
 gem 'kaminari'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
@@ -29,6 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'feathericon-sass'
 gem 'font-awesome-sass', '~> 4.7.0'
+gem 'jquery-rails'
 gem 'popper_js', '~> 1.12.9'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 

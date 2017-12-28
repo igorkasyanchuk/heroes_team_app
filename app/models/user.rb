@@ -3,6 +3,7 @@ class User < ApplicationRecord
   ADMIN_ROLE = 'admin'.freeze
   MODERATOR_ROLE = 'moderator'.freeze
   ROLES = [SALE_ROLE, ADMIN_ROLE, MODERATOR_ROLE].freeze
+  DEFAULT_PASSWORD = 'password'.freeze
 
   has_many :companies, dependent: :destroy
   belongs_to :tenant, optional: true
@@ -17,6 +18,6 @@ class User < ApplicationRecord
   validates :tenant, presence: true
 
   def full_name
-    [first_name, last_name].reject(&:blank?).join('')
+    [first_name, last_name].reject(&:blank?).join(' ')
   end
 end
