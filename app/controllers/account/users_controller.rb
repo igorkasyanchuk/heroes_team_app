@@ -19,10 +19,10 @@ class Account::UsersController < ApplicationController
     @user.tenant = current_tenant
     @user.password = User::DEFAULT_PASSWORD
     if @user.save
-      flash[:success] = "New user is successfuly created!"
+      flash[:success] = 'New user is successfuly created!'
       redirect_to account_users_path
     else
-      flash[:danger] = "Your new user has invalid data!"
+      flash[:danger] = 'Your new user has invalid data!'
       render :new
     end
   end
@@ -34,10 +34,10 @@ class Account::UsersController < ApplicationController
   def update
     @user = resource
     if @user.update_attributes(resource_params)
-      flash[:success] = "Successfuly updated!"
+      flash[:success] = 'Successfuly updated!'
       redirect_to account_users_path
     else
-      flash[:danger] = "Failed to update!"
+      flash[:danger] = 'Failed to update!'
       render :edit
     end
   end
@@ -45,7 +45,7 @@ class Account::UsersController < ApplicationController
   def destroy
     @user = resource
     @user.destroy
-    flash[:success] = "User deleted!"
+    flash[:success] = 'User deleted!'
     redirect_to account_users_path
   end
 

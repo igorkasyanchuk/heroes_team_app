@@ -6,6 +6,6 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_user
-    redirect_to(root_path) unless current_user && current_user.role == User::ADMIN_ROLE
+    redirect_to(root_path) unless current_user&.role == User::ADMIN_ROLE
   end
 end
