@@ -18,6 +18,7 @@ class Account::ProfileController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :date_of_birth, :email, :phone, :work, :skils, :education, :about)
+    params.require(:user).permit(:first_name, :last_name, :date_of_birth,
+                                 :email, :phone, :work, :skils, :education, :about)
   end
 end
