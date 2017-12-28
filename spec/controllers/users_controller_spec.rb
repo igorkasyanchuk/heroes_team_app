@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Account::UsersController, type: :controller do
   before :each do
-    @user = FactoryBot.create(:user)
+    @user = FactoryBot.create(:user, role: User::ADMIN_ROLE)
     sign_in @user
   end
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, role: User::ADMIN_ROLE) }
 
   describe 'action #index' do
     it 'get the user of current tenant' do
