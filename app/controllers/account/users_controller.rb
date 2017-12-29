@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-
+  before_action :admin_user
 
   def index
     @users = collection.page(params[:page]).per(10)
@@ -16,13 +16,12 @@ class Account::UsersController < ApplicationController
 
   def create
     @user = User.new(resource_params)
-    @user.tenant = current_tenant
-    @user.password = User::DEFAULT_PASSWORD
+    @user.assign_attributes(tenant: current_tenant, password: User::DEFAULT_PASSWORD)
     if @user.save
-      flash[:success] = 'New user is successfuly created!'
+      flash.now[:success] = 'New user is successfuly created!'
       redirect_to account_users_path
     else
-      flash[:danger] = 'Your new user has invalid data!'
+      flash.now[:danger] = 'Your new user has invalid data!'
       render :new
     end
   end
@@ -34,10 +33,10 @@ class Account::UsersController < ApplicationController
   def update
     @user = resource
     if @user.update_attributes(resource_params)
-      flash[:success] = 'Successfuly updated!'
+      flash.now[:success] = 'Successfuly updated!'
       redirect_to account_users_path
     else
-      flash[:danger] = 'Failed to update!'
+      flash.now[:danger] = 'Failed to update!'
       render :edit
     end
   end
@@ -45,7 +44,7 @@ class Account::UsersController < ApplicationController
   def destroy
     @user = resource
     @user.destroy
-    flash[:success] = 'User deleted!'
+    flash.now[:success] = 'User deleted!'
     redirect_to account_users_path
   end
 
@@ -62,5 +61,9 @@ class Account::UsersController < ApplicationController
 
   def resource
     collection.find(params[:id])
+  end
+
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
   end
 end

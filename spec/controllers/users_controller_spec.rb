@@ -2,10 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Account::UsersController, type: :controller do
   before :each do
-    @user = FactoryBot.create(:user, role: User::ADMIN_ROLE)
+    @user = FactoryBot.create(:user, :admin)
     sign_in @user
   end
-  let!(:user) { create(:user, role: User::ADMIN_ROLE) }
 
   describe 'action #index' do
     it 'get the user of current tenant' do
@@ -61,6 +60,7 @@ RSpec.describe Account::UsersController, type: :controller do
                                         email: val_user.email } }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to account_users_path
+        expect(controller).to set_flash.now[:success]
       end
     end
     context 'with invalid attributes' do
@@ -78,6 +78,7 @@ RSpec.describe Account::UsersController, type: :controller do
                                         email: nil } }
         expect(response).to have_http_status(200)
         expect(response).to render_template :new
+        expect(controller).to set_flash.now[:danger]
       end
     end
   end
@@ -103,13 +104,14 @@ RSpec.describe Account::UsersController, type: :controller do
         expect(@user.email).to eq('email@mail.com')
       end
 
-      it 'redirects to the updated user' do
+      it 'redirects to the users table' do
         put :update, params: { id: @user.id,
                                user: { first_name: 'Firstname',
                                        last_name: 'Lastname',
                                        email: 'email@mail.com' } }
         expect(response).to have_http_status(302)
         expect(response).to redirect_to account_users_path
+        expect(controller).to set_flash.now[:success]
       end
     end
 
@@ -140,6 +142,7 @@ RSpec.describe Account::UsersController, type: :controller do
                                        email: nil } }
         expect(response).to have_http_status(200)
         expect(response).to render_template :edit
+        expect(controller).to set_flash.now[:danger]
       end
     end
   end
@@ -153,6 +156,7 @@ RSpec.describe Account::UsersController, type: :controller do
       delete :destroy, params: { id: @user.id }
       expect(response).to have_http_status(302)
       expect(response).to redirect_to account_users_path
+      expect(controller).to set_flash.now[:success]
     end
   end
 end
