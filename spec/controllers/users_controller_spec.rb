@@ -79,7 +79,6 @@ RSpec.describe Account::UsersController, type: :controller do
         expect(response).to have_http_status(200)
         expect(response).to render_template :new
         expect(controller).to set_flash[:danger]
-
       end
     end
   end
