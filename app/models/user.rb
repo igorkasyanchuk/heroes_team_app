@@ -4,7 +4,6 @@ class User < ApplicationRecord
   MODERATOR_ROLE = 'moderator'.freeze
   ROLES = [SALE_ROLE, ADMIN_ROLE, MODERATOR_ROLE].freeze
   DEFAULT_PASSWORD = 'password'.freeze
-  SELECT_ROLES = [SALE_ROLE, ADMIN_ROLE].freeze
 
   has_many :companies, dependent: :destroy
   belongs_to :tenant, optional: true
