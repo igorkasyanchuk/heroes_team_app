@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
   scope :by_date, -> { order(created_at: :asc) }
 
+  delegate :name, to: :tenant, prefix: true, allow_nil: true
+
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')
   end
