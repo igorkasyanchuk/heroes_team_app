@@ -7,7 +7,7 @@
     enabled: false
   NilCheck:
     enabled: false
-  PrimaDonnaMethod
+  PrimaDonnaMethod:
     enabled: false
 "app/helpers":
   UtilityFunction:
