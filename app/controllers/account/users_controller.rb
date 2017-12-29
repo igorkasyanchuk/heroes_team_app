@@ -18,9 +18,10 @@ class Account::UsersController < ApplicationController
     @user = User.new(resource_params)
     @user.assign_attributes(tenant: current_tenant, password: User::DEFAULT_PASSWORD)
     if @user.save
-      redirect_to account_users_path, success: 'New user is successfuly created!'
+      redirect_to account_users_path, flash: { success: 'New user is successfuly created!' }
     else
-      render :new, danger: 'Your new user has invalid data!'
+      flash[:danger] = 'Your new user has invalid data!'
+      render :new
     end
   end
 
@@ -31,16 +32,17 @@ class Account::UsersController < ApplicationController
   def update
     @user = resource
     if @user.update_attributes(resource_params)
-      redirect_to account_users_path, success: 'Successfuly updated!'
+      redirect_to account_users_path, flash: { success: 'Successfuly updated!' }
     else
-      render :edit, danger: 'Failed to update!'
+      flash[:danger] = 'Failed to update!'
+      render :edit
     end
   end
 
   def destroy
     @user = resource
     @user.destroy
-    redirect_to account_users_path, success: 'User deleted!'
+    redirect_to account_users_path, flash: { success: 'User deleted!' }
   end
 
   private
