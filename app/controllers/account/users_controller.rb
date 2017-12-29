@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_user
+  before_action :require_admin!
 
   def index
     @users = collection.page(params[:page]).per(10)
@@ -61,9 +61,5 @@ class Account::UsersController < ApplicationController
 
   def resource
     collection.find(params[:id])
-  end
-
-  def admin_user
-    redirect_to(root_path) unless current_user.admin?
   end
 end
