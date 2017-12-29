@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     current_user&.tenant
   end
 
-  def require_admin!
+  def authorize_admin!
     redirect_to(root_path) unless current_user&.role == User::ADMIN_ROLE
   end
 end

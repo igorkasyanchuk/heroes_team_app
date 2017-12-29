@@ -18,6 +18,8 @@ class User < ApplicationRecord
   validates :tenant, presence: true
   validates :role, presence: true, inclusion: ROLES
 
+  scope :by_date, -> { order(created_at: :asc) }
+
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')
   end

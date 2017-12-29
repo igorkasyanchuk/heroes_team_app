@@ -4,7 +4,8 @@
       .row
         .col-md-2
           h2 Users
-        .col-md-2
-          = link_to 'Add user', new_account_user_path, class: 'btn btn-primary'
-      = render 'users_table'
+        .row
+          .col-md-2
+            = link_to 'Add new', new_account_user_path, class: 'btn btn-primary'
+      = render 'users_table', users: @users
       = paginate @users

@@ -1,6 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :require_admin!
+  before_action :authorize_admin!
 
   def index
     @users = collection.page(params[:page]).per(10)
@@ -48,12 +48,11 @@ class Account::UsersController < ApplicationController
   private
 
   def resource_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                 :role, :tenant_id)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :role)
   end
 
   def collection
-    current_tenant.users.order(created_at: :asc)
+    current_tenant.users.by_date
   end
 
   def resource
