@@ -1,3 +1,6 @@
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require ./stack_theme/vendors/vendors.min
 //= require ./stack_theme/core/app
 //= require ./stack_theme/core/app-menu
@@ -8,4 +11,6 @@
 //= require account/contents
 //= require account/sortable_widgets
 //= require vendor/jquery.tree-multiselect
+//= require account/form-plugins-initialzer
+
 //= require rails-ujs
