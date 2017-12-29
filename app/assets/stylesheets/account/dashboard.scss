@@ -11,3 +11,9 @@ div.navbar-header {
    opacity: 1;
    display: block !important; 
 }
+
+#sticky-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
