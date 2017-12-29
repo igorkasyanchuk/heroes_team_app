@@ -10,8 +10,4 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
-
-  def user_admin?
-    current_user.role.eql? "admin"
-  end
 end
