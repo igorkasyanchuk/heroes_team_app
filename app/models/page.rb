@@ -27,4 +27,7 @@ class Page < ApplicationRecord
   PAGE_TYPES = [BING_TYPE, ANGLECO_TYPE, LINKEDIN_TYPE, CRUNCHBASE_TYPE].freeze
 
   belongs_to :company
+
+  mount_uploader :screenshot, ScreenshotUploader
+
 end
