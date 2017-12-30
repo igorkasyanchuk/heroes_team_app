@@ -2,6 +2,4 @@ h2.row
   .col-md-3 Add new User
 .row
   .col-md-3
-    = simple_form_for [:account, @user],
-            defaults: {input_html: {class: 'form-control'}} do |form|
-      = render 'form', button_text: 'Create', f: form
+    = render 'form', button_text: 'Create', user: @user
