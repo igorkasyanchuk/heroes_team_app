@@ -69,10 +69,10 @@ ActiveRecord::Schema.define(version: 20171227054925) do
     t.datetime "date_of_birth"
     t.string "avatar"
     t.string "phone"
-    t.text "education"
-    t.text "work"
     t.string "skils"
     t.string "social_links"
+    t.text "education"
+    t.text "work"
     t.text "about"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

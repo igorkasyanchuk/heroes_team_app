@@ -10,7 +10,6 @@ Rails.application.routes.draw do
     end
     resources :tenants
     resources :users
-    get 'profile/edit', to: 'profile#edit'
-    patch 'profile/edit', to: 'profile#update'
+    resource :profile, only: %i[edit update], controller: 'profile'
   end
 end
