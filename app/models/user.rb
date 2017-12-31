@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :last_name,  length: { minimum: 3, maximum: 50 }, presence: true
   validates :tenant, presence: true
   validates :phone, length: { maximum: 32 }, allow_blank: true
-  validates :email, presence: true, uniqueness: true, email_format: {:check_mx => true }
+  validates :email, presence: true, uniqueness: true, email_format: { message: 'has invalid format' }
 
   def full_name
     [first_name, last_name].reject(&:blank?).join('')
