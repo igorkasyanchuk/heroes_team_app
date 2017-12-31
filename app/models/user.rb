@@ -25,7 +25,7 @@ class User < ApplicationRecord
   delegate :name, to: :tenant, prefix: true, allow_nil: true
 
   validates :phone, length: { maximum: 32 }, allow_blank: true
-  validates :email, presence: true, uniqueness: true, email_format: {:check_mx => true }
+  validates :email, presence: true, uniqueness: true, email_format: { message: 'has invalid format' }
 
 
   def full_name
