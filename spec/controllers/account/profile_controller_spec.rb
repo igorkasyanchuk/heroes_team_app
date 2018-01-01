@@ -36,5 +36,3 @@ RSpec.describe Account::ProfileController, type: :controller do
     end
   end
 end
-
-
