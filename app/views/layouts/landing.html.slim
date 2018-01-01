@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title
+      | HeroesTeamApp
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+  body
+    = render 'layouts/header_landing'
+    .home-back-image
+      .app-content.container.center-layout.mt-2.mb-5
+        p.alert
+          - flash.each do |message_type, message|
+            = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
+        = yield
+    = any_login_here if defined?(AnyLogin)
+    = render 'layouts/footer'
