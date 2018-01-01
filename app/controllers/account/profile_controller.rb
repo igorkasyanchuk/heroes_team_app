@@ -8,9 +8,10 @@ class Account::ProfileController < ApplicationController
   def update
     @profile = current_user
     if @profile.update_attributes(user_params)
-      flash[:success] = "Profile updated"
-      redirect_to account_companies_path
+      flash[:success] = "Profile updated!"
+      redirect_to account_user_path(@profile)
     else
+      flash[:danger] = 'Failed to update!'
       render :edit
     end
   end
