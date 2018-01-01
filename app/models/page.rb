@@ -30,4 +30,11 @@ class Page < ApplicationRecord
 
   mount_uploader :screenshot, ScreenshotUploader
 
+  after_create :start_worker
+
+  private
+
+  def start_worker
+    NewPageWorker.perform_async(id)
+  end
 end
