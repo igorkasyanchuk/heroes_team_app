@@ -9,7 +9,7 @@ html
   body
     = render 'layouts/header_landing'
     .home-back-image
-      .app-content.container.center-layout.mt-2.mb-5
+      .app-content.container.center-layout
         p.alert
           - flash.each do |message_type, message|
             = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
