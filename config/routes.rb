@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       resources :pages, only: %i[show index]
       get :download, on: :member
     end
-    resources :tenants
+    resources :tenants, only: %i[show index]
+    resource :my_tenant, only: %i[show edit update]
     resources :users do
       post :impersonate, on: :member
       post :stop_impersonating, on: :collection
