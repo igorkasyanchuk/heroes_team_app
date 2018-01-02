@@ -1,13 +1,25 @@
 .home-back-image{
   color: rgb(255, 255, 255);
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('/images/landing_home.jpg');
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('/images/landing_back.jpeg');
   background-position: center 10%;
   background-size: cover;
-  padding-top: 80px;
-  padding-bottom: 120px;
+  height: 100%;
+}
+
+.landing-cont-back{
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
 }
 
 .space-between {
   -webkit-box-pack: justify !important;
   justify-content: space-between !important;
+}
+
+.center-me {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  padding: 10% 0;
 }

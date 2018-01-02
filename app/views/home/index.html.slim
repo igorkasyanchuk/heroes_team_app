@@ -1,6 +1,9 @@
 .home-back-image
   .app-content.container.center-layout
-    .content-wrapper
-      .content-body.row
-        section.content.col-md-6.offset-md-1
-          = render 'devise/shared/text'
+      .content-wrapper
+        .content-body.center-me
+          section.content.p-3.landing-cont-back
+            h2 Find your customer with
+            h1.py-2 Sales Assistant
+            button.btn.btn-primary.btn-round type="button"
+              = link_to "Sign up Now", new_user_registration_path, class: 'white'
