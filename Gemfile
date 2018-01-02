@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave'
 gem 'devise'
 gem 'dynamic_form'
@@ -13,6 +14,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'pg', '~> 0.18'
+gem 'pretender'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'rails_best_practices'

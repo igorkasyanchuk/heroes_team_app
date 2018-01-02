@@ -8,4 +8,6 @@ class ApplicationController < ActionController::Base
   def authorize_admin!
     redirect_to(root_path) unless current_user&.role == User::ADMIN_ROLE
   end
+
+  impersonates :user
 end
