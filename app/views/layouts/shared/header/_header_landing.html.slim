@@ -1,4 +1,4 @@
-.header-navbar.navbar-expand-sm.menu-icon-right.navbar.navbar-horizontal.navbar-dark.navbar-shadow.border-grey.border-darken-2.navbar-brand-center.space-between data-nav="brand-center"
+.header-navbar.navbar-expand-sm.navbar.navbar-horizontal.navbar-light.navbar-shadow.border-grey.border-lighten-2.navbar-brand-center.space-between data-nav="brand-center"
   /! Horizontal menu content
   .horizontal-menu.navbar-container.ml-0
     = link_to 'SalesAssistant', root_path, id: 'logo', class:"mr-4"
@@ -6,11 +6,11 @@
       li.nav-item
         = link_to "Home", root_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "About Us", "#", class:"nav-link font-medium-2"
+        = link_to "About Us", about_us_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "Pricing", "#", class:"nav-link font-medium-2"
+        = link_to "Pricing", pricing_path, class:"nav-link font-medium-2"
       li.nav-item
-        = link_to "Contacts", "#", class:"nav-link font-medium-2"
+        = link_to "Contacts", contacts_path, class:"nav-link font-medium-2"
   .horizontal-menu.navbar-container.ml-0.pt-2
     .nav.navbar-nav data-menu="menu-navigation"
 

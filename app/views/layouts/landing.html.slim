@@ -7,7 +7,7 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = render 'layouts/header_landing'
+    = render 'layouts/shared/header/header_landing'
     = yield
     = any_login_here if defined?(AnyLogin)
-    = render 'layouts/footer'
+    = render 'layouts/shared/footer/footer_landing'

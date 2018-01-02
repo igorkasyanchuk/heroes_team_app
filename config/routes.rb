@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  get 'pricing', to: 'home#pricing'
+  get 'about-us', to: 'home#about_us'
+  get 'contacts', to: 'home#contacts'
+
   devise_for :users, path: 'account', controllers: {
     registrations: 'users/registrations'
   }
@@ -11,4 +14,10 @@ Rails.application.routes.draw do
     resources :tenants
     resources :users
   end
+
+  authenticated :user do
+    root 'account/companies#index', as: :authenticated_root
+  end
+
+  root 'home#index'
 end

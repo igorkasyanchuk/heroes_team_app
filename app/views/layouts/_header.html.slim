@@ -1,7 +1,7 @@
 nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.navbar-dark.navbar-border
   .navbar-wrapper
     .navbar-container.content
-      = link_to 'SalesAssistant', "#", id: 'logo'
+      = link_to 'SalesAssistant', root_path, id: 'logo'
       - if user_signed_in?
         .collapse.navbar-collapse.float-right
           ul.nav.navbar-nav.float-right
@@ -44,11 +44,3 @@ nav.header-navbar.navbar-expand-md.navbar.navbar-with-menu.navbar-static-top.nav
                   = link_to destroy_user_session_path, method: :delete, class: "btn btn-sm" do
                     i.fa.fa-sign-out
                     | Log out
-      /- else
-      /  - if controller_name != 'sessions'
-      /    .collapse.navbar-collapse.float-right
-      /      .nav.navbar-nav.float-right
-      /        #login.nav-item
-      /          = link_to new_session_path(resource_name), class:"btn btn-success btn-md" do
-      /            i.fa.fa-user
-      /            | Log in
