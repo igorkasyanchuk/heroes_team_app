@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'brakeman', '~> 4.1', '>= 4.1.1'
 gem 'carrierwave'
 gem 'devise'
 gem 'dynamic_form'
