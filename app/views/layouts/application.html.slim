@@ -12,12 +12,6 @@ html
       - flash.each do |message_type, message|
         = content_tag(:div, message, class: "alert alert-#{message_type} col-md-3")
     .app-content.container.center-layout.mt-2.mb-5
-      - if current_user != true_user
-        |  You (
-        = true_user.full_name
-        | ) are signed in as
-        = current_user.full_name
-        = link_to " Back to admin", stop_impersonating_account_users_path, method: :post
       = yield
     = any_login_here if defined?(AnyLogin)
     = render 'layouts/footer'
