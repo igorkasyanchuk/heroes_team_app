@@ -1,14 +1,33 @@
-.home-back-image{
+.home-back {
   color: rgb(255, 255, 255);
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('/images/landing_back.jpeg');
   background-position: center 10%;
   background-size: cover;
-  height: 100%;
+  height: 600px
+}
+.image1{
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('/images/landing_back.jpeg');
+  background-attachment:fixed;
 }
 
-.landing-cont-back{
+.image2{
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('/images/landing_back2.jpeg');
+  background-attachment:fixed;
+}
+
+.landing-cont-back1{
   background: rgba(255, 255, 255, 0.45);
-  border-radius: 20px;
+  text-align: right;
+}
+
+.landing-cont-back2{
+  background: rgba(93, 255, 245, 0.13);
+  text-align: right;
+}
+
+.landing-cont-back3{
+  background: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  font-size: 30px;
 }
 
 .space-between {
@@ -16,10 +35,11 @@
   justify-content: space-between !important;
 }
 
-.center-me {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  text-align: center;
-  padding: 10% 0;
+.landing-part1{
+  padding-top: 60% !important;
+  padding-bottom: 30% !important;
+}
+
+.landing-part2{
+  padding-top: 30% !important;
 }
