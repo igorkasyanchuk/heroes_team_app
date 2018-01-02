@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  impersonates :user
 
   layout :layout_by_resource
 
@@ -8,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_admin!
-    redirect_to(root_path) unless current_user&.role == User::ADMIN_ROLE
+    redirect_to(root_path) unless true_user&.role == User::ADMIN_ROLE
   end
 
   def layout_by_resource

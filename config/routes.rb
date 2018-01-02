@@ -10,9 +10,13 @@ Rails.application.routes.draw do
   namespace :account do
     resources :companies do
       resources :pages, only: %i[show index]
+      get :download, on: :member
     end
     resources :tenants
-    resources :users
+    resources :users do
+      post :impersonate, on: :member
+      post :stop_impersonating, on: :collection
+    end
   end
 
   authenticated :user do
