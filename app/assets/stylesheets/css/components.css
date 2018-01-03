@@ -2783,9 +2783,6 @@ head {
 body:after {
   display: none; }
 
-*[data-usn-if] {
-  display: none; }
-
 .group-area {
   margin-bottom: 3rem; }
 
