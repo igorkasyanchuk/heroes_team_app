@@ -3,7 +3,6 @@
 }
 .home-back {
   color: rgb(255, 255, 255);
-  height: 100%;
 }
 
 .image1{
@@ -15,7 +14,7 @@
 }
 
 .image2{
-  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('landing_back2.jpeg') no-repeat fixed center center;
+  background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('landing_back2.jpeg') no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -47,9 +46,9 @@
 
 .landing-part1{
   padding-top: 30% !important;
-  padding-bottom: 60% !important;
+  padding-bottom: 70% !important;
 }
 
 .landing-part2{
-  padding-top: 10% !important;
+  margin-top: 20% !important;
 }
