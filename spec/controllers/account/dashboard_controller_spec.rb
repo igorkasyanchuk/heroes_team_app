@@ -6,7 +6,7 @@ RSpec.describe Account::DashboardController, type: :controller do
     sign_in @user
   end
   describe "GET #index" do
-    it "renders the :index view" do
+    it "returns a 200 status code" do
       get :index
       expect(response).to have_http_status(200)
     end
