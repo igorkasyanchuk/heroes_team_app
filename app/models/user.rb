@@ -27,6 +27,6 @@ class User < ApplicationRecord
   end
 
   def admin?
-    role.eql?('admin')
+    role == User::ADMIN_ROLE
   end
 end
