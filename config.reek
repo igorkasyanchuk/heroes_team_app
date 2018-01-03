@@ -7,6 +7,10 @@
     enabled: false
   TooManyStatements:
     max_statements: 6
+  NilCheck:
+    enabled: false
+  PrimaDonnaMethod:
+    enabled: false
 "app/libs":
   TooManyStatements:
     max_statements: 10

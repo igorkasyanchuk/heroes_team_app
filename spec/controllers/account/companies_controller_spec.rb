@@ -3,7 +3,10 @@ require 'rails_helper'
 RSpec.describe Account::CompaniesController, type: :controller do
   let!(:company) { create(:company) }
   before(:each) { sign_in company.user }
-
+  before(:each) do
+    allow_any_instance_of(FullContactCompanyProcessor).to receive(:call_fullcontact_api)
+      .and_return({})
+  end
   describe "GET #index" do
     it "populates an array of companies" do
       get :index
@@ -40,10 +43,6 @@ RSpec.describe Account::CompaniesController, type: :controller do
   describe "POST create" do
     context "with valid attributes" do
       let!(:val_company) { build(:company) }
-      before(:each) do
-        allow_any_instance_of(FullContactCompanyProcessor).to receive(:call_fullcontact_api)
-          .and_return(response)
-      end
 
       it "creates a new company" do
         expect do
