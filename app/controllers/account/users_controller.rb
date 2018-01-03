@@ -1,7 +1,6 @@
 class Account::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :authorize_admin!
-  after_action :send_credentials, only: [:create]
 
   def index
     @users = collection.page(params[:page]).per(10)
@@ -30,6 +29,7 @@ class Account::UsersController < ApplicationController
     @user = User.new(resource_params)
     @user.assign_attributes(tenant: current_tenant, password: User::DEFAULT_PASSWORD)
     if @user.save
+      UsersMailer.credentials(@user).deliver
       redirect_to account_users_path, flash: { success: 'New user is successfuly created!' }
     else
       flash[:danger] = 'Your new user has invalid data!'
@@ -58,10 +58,6 @@ class Account::UsersController < ApplicationController
   end
 
   private
-
-  def send_credentials
-    UsersMailer.credentials(@user).deliver
-  end
 
   def resource_params
     params.require(:user).permit(:first_name, :last_name, :email, :role)
