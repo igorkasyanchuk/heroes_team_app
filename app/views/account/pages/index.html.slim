@@ -7,5 +7,5 @@
           th.col-md-6 Title
           th.col-md-3 Type
           th.col-md-3 Status
-        = render partial: 'pages_table', collection: @pages, as: :page
+        = render @pages
       = paginate @pages

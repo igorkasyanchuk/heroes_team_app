@@ -1,20 +1,36 @@
-.container
-  .row
-    .col-md-12
-      = link_to  "Back to all pages", account_company_pages_path, class: 'btn btn-primary'
-      h1= @page.title
-      div
-        h3 Page type:
-        p= @page.page_type
-      div
-        h3 Status:
-        p= @page.status
-      div
-        h3 Content:
-        p= @page.content
-      div
-        h3 Content html:
-        p= @page.content_html
-      div
-        h3 Screenshot url:
-        p= @page.screenshot
+.content-wrapper
+  .content-header.row
+    .content-header-left.col-md-6.col-12.mb-2
+      h2.content-header-title.mb-0 =@page.title
+      .row.breadcrumbs-top
+        .breadcrumb-wrapper.col-12
+          ol.breadcrumb
+            li.breadcrumb-item
+              a href=root_path  User
+            li.breadcrumb-item
+              a href=account_companies_path  All Companies
+            li.breadcrumb-item
+              a href=account_company_path(@company) =@company.name
+            li.breadcrumb-item
+              a href=account_company_pages_path All pages
+  .content-body
+    section.row
+      .col-sm-12
+        div
+          h3 Page type:
+          p= @page.page_type
+        div
+          h3 Status:
+          p= @page.status
+        div
+          h3 Source:
+          p = @page.source_url
+        div
+          h3 Content:
+          p= @page.content
+        div
+          h3 Content html:
+          p= @page.content_html
+        div
+          h3 Screenshot url:
+          p= @page.screenshot
