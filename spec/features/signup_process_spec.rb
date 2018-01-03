@@ -14,6 +14,6 @@ feature 'Sign up process' do
     fill_in 'Confirm Password', with: user.password
     click_button 'Create Account'
 
-    expect(page).to have_text('Dashboard')
+    expect(page).to have_text('Hello to Sales Assistant')
   end
 end
