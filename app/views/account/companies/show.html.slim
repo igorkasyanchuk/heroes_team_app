@@ -36,7 +36,7 @@
                   h4= @company.name
                   a href="http://#{@company.domain}" target="_blank"=  @company.domain
                   h6 Description
-                  p= @company.overview
+                  p=  simple_format @company.overview
               .row
                 .card-text.col-sm-2
                   h6 Industries

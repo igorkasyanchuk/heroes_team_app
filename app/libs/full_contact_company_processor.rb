@@ -4,16 +4,27 @@ class FullContactCompanyProcessor
   end
 
   def process
-    @response = call_fullcontact_api
-    return if @response.nil? || @response['status'] != 200
-    process_links
-    process_organization
-    set_industries
+    return if response.blank? || response['status'] != 200
+    fill_data
     @company.save
     @company
   end
 
   private
+
+  def links
+    @links = response['social_profiles']
+  end
+
+  def response
+    @response = call_fullcontact_api
+  end
+
+  def fill_data
+    process_links
+    process_organization
+    set_industries
+  end
 
   def process_links
     @company.twitter = find_url('twitter')
@@ -29,31 +40,28 @@ class FullContactCompanyProcessor
   end
 
   def process_organization
-    organization = @response['organization']
-    @company.name = organization['name'] || ''
-    @company.approx_employees = organization['approx_employees'] || ''
-    @company.founded = organization['founded'] || ''
-    @company.overview = organization['overview'] || ''
+    organization = response['organization']
+    @company.name = organization['name']
+    @company.approx_employees = organization['approx_employees']
+    @company.founded = organization['founded']
+    @company.overview = organization['overview']
   end
 
   def call_fullcontact_api
-    FullContact.api_key = Rails.application.secrets.fullcontact_api_key
     FullContact.company(domain: @company.domain).to_hash
   rescue FullContact::NotFound, FullContact::Invalid, FullContact::Forbidden
     nil
   end
 
   def find_url(type_id)
-    if @response['social_profiles']&.any? { |h| h['type_id'] == type_id }
-      @response['social_profiles'].find { |x| x['type_id'] == type_id }['url']
-    else
-      ''
-    end
+    return unless !links.blank? && links.any? { |link| link['type_id'] == type_id }
+    links.find { |item| item['type_id'] == type_id }['url']
   end
 
   def set_industries
-    return unless @response['industries']
-    @response['industries'].each do |item|
+    all_industry = response['industries']
+    return unless all_industry
+    all_industry.each do |item|
       @company.industries << Industry.find_or_create_by(name: item['name'])
     end
   end

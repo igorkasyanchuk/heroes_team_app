@@ -5,6 +5,11 @@
     enabled: false
   InstanceVariableAssumption:
     enabled: false
+  TooManyStatements:
+    max_statements: 6
+"app/libs":
+  TooManyStatements:
+    max_statements: 10
 "app/helpers":
   UtilityFunction:
     enabled: false
