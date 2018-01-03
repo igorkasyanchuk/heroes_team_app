@@ -7,13 +7,9 @@
   $.app.menu= {
     change: function() {
       $('body[data-open="hover"] .dropdown').on('mouseenter', function(){
-        if (!($(this).hasClass('open'))) {
-          $(this).addClass('open');
-        }else{
-          $(this).removeClass('open');
-        }
+          $(this).toggleClass('open');
         }).on('mouseleave', function(){
-          $(this).removeClass('open');
+          $(this).toggleClass('open');
         });
     },
   };
