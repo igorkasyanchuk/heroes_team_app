@@ -8,3 +8,5 @@
 - [ ] PR doesn't have conflicts with main branch
 - [ ] I've checked new feature as logged in and logged out user if needed
 - [ ] "let!" is used in specs
+- [ ] screenshot of rails_best_practices and other tools added
+- [ ] screenshot of feature is added if task has UI
